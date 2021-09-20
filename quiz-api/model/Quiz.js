@@ -1,5 +1,6 @@
 // Open Trivia APIにアクセスし、取得したデータを整形する
 const request = require('request-promise');
+const { response } = require('../app');
 const options = {
   method: 'GET',
   json: true,
@@ -7,7 +8,11 @@ const options = {
 }
 module.exports = class Quiz {
   getQuiz() {
-    return 'API取得結果'
+    return new Promise(function(resolve, reject) {
+      request(options, (error, response, body) => {
+        resolve(body);
+      })
+    });
   }
 }
 
