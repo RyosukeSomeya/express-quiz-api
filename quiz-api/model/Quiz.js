@@ -1,12 +1,13 @@
 // Open Trivia APIにアクセスし、取得したデータを整形する
-const OPEN_TRIVIA_API = 'https://opentdb.com/api.php?amount=10';
-
+const request = require('request-promise');
+const options = {
+  method: 'GET',
+  json: true,
+  url: "https://opentdb.com/api.php?amount=10",
+}
 module.exports = class Quiz {
   getQuiz() {
-    // return new Promise ((resolve, reject) => {
-      
-    // });
-    return 'test';
+    return 'API取得結果'
   }
 }
 
