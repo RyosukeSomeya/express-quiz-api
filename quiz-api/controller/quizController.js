@@ -1,14 +1,14 @@
+const e = require('express');
 const quiz = require('../model/Quiz');
 
 module.exports = {
-  getQuiz: (req, res, next) => {
+  getQuiz: (req, res) => {
     // Quiz取得
     const quizApi = new quiz();
-    const quizData = quizApi.getQuiz();
-    quizData.then((result) => {
-      res.json({
-        message: result
-      });
+    const quizApiData = quizApi.getQuiz();
+    quizApiData.then((response) => {
+      res.json(response);
     });
   },
 }
+

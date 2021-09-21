@@ -10,7 +10,13 @@ module.exports = class Quiz {
   getQuiz() {
     return new Promise(function(resolve, reject) {
       request(options, (error, response, body) => {
-        resolve(body);
+        let quizData = [];
+
+        body.results.forEach((element, index) => {
+          quizData.push(element)
+        });
+
+        resolve(quizData);
       })
     });
   }
